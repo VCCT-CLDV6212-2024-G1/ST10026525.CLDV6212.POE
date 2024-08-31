@@ -1,0 +1,105 @@
+﻿@model ST10026525.CLDV6212.POE.PART1.Models.CustomerProfile
+
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1.display-4 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="email"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="display-4">Welcome to ABC Retail Employee Database</h1>
+
+    <div class="container">
+        <h1>Employee Data Entree</h1>
+
+        <p>A. Upload your personal details: </p>
+        <form asp-action="AddCustomerProfile" method="post">
+            <input type="text" name="FirstName" placeholder="First Name" />
+            <input type="text" name="LastName" placeholder="Last Name" />
+            <input type="email" name="Email" placeholder="Email" />
+            <input type="text" name="PhoneNumber" placeholder="Phone Number" />
+            <button type="submit">Add Profile</button>
+        </form>
+
+        <p>B. Upload new product images: </p>
+        <form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit">Submit Image</button>
+        </form>
+
+        <p>C. Check on Order Status here: </p>
+        <form asp-action="ProcessOrder" method="post">
+            <input type="text" name="orderId" placeholder="Order ID" />
+            <button type="submit">Submit order</button>
+        </form>
+
+        <p>E. Upload your Employee contract here (NEW EMPLOYEES ONLY): </p>
+        <form asp-action="UploadContract" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit">Submit Contract</button>
+        </form>
+    </div>
+</body>
+</html>
